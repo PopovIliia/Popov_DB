@@ -4,6 +4,8 @@ t.push(3)
 console.log(t)
 //t =[3,4]
 
+console.log('check')
+
 const obj = {
     a: 1,
     b: 2
