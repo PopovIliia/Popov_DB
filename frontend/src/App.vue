@@ -23,13 +23,8 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn v-if="auth" @click="logout">
+        <v-icon>mdi-exit-to-app</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -45,12 +40,16 @@ import HelloWorld from "./components/HelloWorld";
 export default {
   name: "App",
 
-  components: {
-    HelloWorld
+  computed: {
+    auth() {
+      return this.$store.state.auth.isAuth
+    },
   },
-
-  data: () => ({
-    //
-  })
-};
+  methods: {
+    logout() {
+      this.$store.dispatch('auth/logout')
+      this.$router.push({ name: 'SignIn' })
+    },
+  },
+}
 </script>

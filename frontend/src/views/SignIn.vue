@@ -21,7 +21,8 @@
             label="Пароль"
             counter
             @click:append="showPassword = !showPassword"
-          ></v-text-field>
+            required
+    ></v-text-field>
 
 
 
